@@ -1,0 +1,49 @@
+{
+    "presets": [
+        "next/babel"
+    ],
+    "plugins": [
+        "relay",
+        "transform-flow-strip-types",
+        [
+            "module-resolver",
+            {
+                "alias": {
+                    "@talent/candidates": "./src/candidates",
+                    "@talent/components": "./src/components",
+                    "@talent/config": "./config",
+                    "@talent/entities": "./src/entities",
+                    "@talent/interview": "./src/interview",
+                    "@talent/layout": "./src/layout",
+                    "@talent/libs": "./src/libs",
+                    "@talent/notes": "./src/notes",
+                    "@talent/offer": "./src/offer",
+                    "@talent/opinionCandidacy": "./src/opinionCandidacy",
+                    "@talent/prequalification": "./src/prequalification",
+                    "@talent/routes": "./routes",
+                    "@talent/src": "./src",
+                    "@talent/viewer": "./src/viewer",
+                    "@talent/reminder": "./src/reminder",
+                    "@talent/rt": "./src/rt",
+                    "@talent/employmentContract": "./src/employmentContract",
+                    "@talent/commonMutations": "./src/commonMutations"
+                }
+            }
+        ],
+        [
+            "inline-import",
+            {
+                "extensions": [
+                    ".css"
+                ]
+            }
+        ],
+        [
+            "import",
+            {
+                "libraryName": "antd"
+            }
+        ],
+        "inline-react-svg"
+    ]
+}

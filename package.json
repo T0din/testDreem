@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "axios": "^0.21.0",
+    "babel": "^6.23.0",
+    "eslint": "^7.16.0",
+    "moment": "^2.29.1",
+    "react-router": "^5.2.0"
+  }
+}

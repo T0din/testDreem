@@ -12,18 +12,8 @@ const List = () => {
     const [viewData, setViewData] = React.useState(null);
     const [formData, setFormData] = React.useState(null);
 
-    const fetch = ({page, sort}) => {
+    const fetch = (page) => {
         const pageForAxios = page || 1;
-        if (sort) {
-            return axios
-                .get(
-                    `http://localhost:3000/persons?_page=${pageNumber}&_limit=20&_sort=views&_order=asc`
-                )
-                .then(function (response) {
-                    // handle success
-                    setArrayOfPersons(response.data);
-                });
-        }
         return axios
             .get(`http://localhost:3000/persons?_page=${pageForAxios}&_limit=20`)
             .then(function (response) {
@@ -32,17 +22,28 @@ const List = () => {
             });
     };
 
+    // const fetchSort = (sort) => {
+    //     return axios
+    //         .get(
+    //             `http://localhost:3000/persons?_page=${pageNumber}&_limit=20&_sort=${sort.fieldName}&_order=${sort.order}`
+    //         )
+    //         .then(function (response) {
+    //             // handle success
+    //             setArrayOfPersons(response.data);
+    //         });
+    // };
+
     React.useEffect(() => {
         fetch();
     }, []);
 
     React.useEffect(() => {
-        fetch({page: pageNumber});
+        fetch(pageNumber);
     }, [pageNumber]);
 
-    React.useEffect(() => {
-        fetch({sort: sortInfo});
-    }, [sortInfo]);
+    // React.useEffect(() => {
+    //     fetchSort(sortInfo);
+    // }, [fetchSort, sortInfo]);
 
     const handleChange = ({fieldname, value}) => {
         setFormData({...viewData, [fieldname]: value});
